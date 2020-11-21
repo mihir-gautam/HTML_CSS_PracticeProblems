@@ -65,6 +65,17 @@
               else
               textError.textContent="Name is incorrect";
          })
+         //UC2 - Verify that the correct email id is entered
+         const email = document.querySelector('#email');
+         const emailError = document.querySelector('.email-error');
+         email.addEventListener('input', function() {
+            let emailRegex = RegExp("^[a-z0-9]+(([\\.+-][a-z0-9]{1,})?)+@[a-z0-9]+\\.([a-z]{2,4})+((\\.[a-z]{2,4})?)$");
+            if (emailRegex.test(email.value)) {
+                emailError.textContent = "";
+            } 
+            else emailError.textContent = "Invalid Email!";
+         })
+
          const salary=document.querySelector('#salary');
          const output=document.querySelector('.salary-output');
          output.textContent=salary.value;
